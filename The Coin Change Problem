@@ -1,0 +1,36 @@
+#include<iostream>
+using namespace std;
+void Dp(int c[],int m,int n)
+{
+  long int coin[52][252];
+  for(long int i = 1;i<=m;i++)
+  {
+    coin[i][0] = 1;
+    for(long int j =1;j<=n;j++ )
+    {
+        if(j>=c[i])
+        {
+            coin[i][j] = coin[i-1][j] + coin[i][j-c[i]];
+        }
+        else
+            coin[i][j] = coin[i-1][j];
+    }
+  }
+
+  cout<<coin[m][n];
+}
+
+
+int main()
+{
+  int n,m;
+cin>>n;
+cin>>m;
+int c[m];
+for(int i = 1;i<=m;i++)
+{
+  cin>>c[i];
+}
+Dp(c,m,n);
+return 0;
+}
