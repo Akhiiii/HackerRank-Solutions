@@ -1,0 +1,28 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int main(){
+    int t;
+    cin >> t;
+    for(int a0 = 0; a0 < t; a0++){
+        int k,t ;
+        int n;
+        int c;
+        int m;
+        cin >> n >> c >> m;
+        k = n/c;
+        t = k;
+        while(k >= m)
+        {
+            t = t + k / m;
+            k = k /m + k % m ;
+        }
+        cout<<t<<endl;
+        
+    }
+    return 0;
+}
