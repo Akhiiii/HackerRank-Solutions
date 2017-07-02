@@ -1,0 +1,33 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+
+int main() {
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */  
+    long long n,m,a,b,k;
+    cin>>n>>m;
+    vector<long long >A(n+1);
+    for(int i=1; i <= n; i++)
+            A[i] = 0;
+    for(int i=1;i<=m;i++)
+        {
+        cin>>a>>b>>k;
+            A[a] = A[a] + k; 
+        if(b<=n)
+            A[b+1] = A[b+1] - k;
+       
+    }
+    long long sum,max;
+    max = A[1];
+    sum = A[1];
+    for(int i=2; i <= n; i++) {
+        sum += A[i];
+        if(max < sum) max = sum;
+    }
+    cout<<max;
+    return 0;
+}
