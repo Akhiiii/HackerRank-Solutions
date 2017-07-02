@@ -1,0 +1,36 @@
+/*
+Node is defined as 
+
+typedef struct node
+{
+   int data;
+   node * left;
+   node * right;
+}node;
+
+*/
+
+
+node * insert(node * root, int n)
+{
+    node *temp = new node();
+  temp->data = n;
+  temp->left = NULL;
+  temp->right = NULL;
+
+  if (root == NULL)
+  {
+      root = temp;
+  }
+  else
+  {
+    if(temp->data <= root->data )
+      root->left = insert(root->left,n);
+    else
+        root->right = insert(root->right,n);
+
+  }
+  return root;
+
+   
+}
